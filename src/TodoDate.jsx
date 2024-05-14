@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function TodoDate({
   date,
   onPinToTop,
@@ -19,11 +17,11 @@ function TodoDate({
   function formatDate(dateString) {
     // Define a regular expression to match the date string "DD/MM/YYYY"
     const dateRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
-
+    console.log("line no 22=>", dateRegex)
     // Parse the date string using the regular expression
     const match = dateRegex.exec(dateString);
     if (match) {
-      const [, month, day, year] = match;
+      const [, day, month, year] = match;
 
       // Convert the parsed day, month, and year to a standard date format "YYYY-MM-DD"
       const standardDate = `${year}-${month}-${day}`;
@@ -44,6 +42,7 @@ function TodoDate({
         if (isToday) {
           return "Today";
         }
+        console.log("line no 22=>", isToday)
         // Check if the date is yesterday
         const yesterday = new Date(today);
         yesterday.setDate(today.getDate() - 1);
@@ -55,12 +54,12 @@ function TodoDate({
         if (isYesterday) {
           return "Yesterday";
         }
-
+        console.log("line no 22=>", date.toLocaleDateString())
         // Otherwise, return the date in MM/DD/YYYY format
         return date.toLocaleDateString();
       }
     }
-
+    console.log("line no 22=>", "Date is invalid")
     // If the date is invalid or does not match the expected format, return "Invalid Date"
     return "Invalid Date";
   }

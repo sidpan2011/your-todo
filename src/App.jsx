@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.css"
 import Todos from "./Todo.jsx";
 
 export default function App() {
